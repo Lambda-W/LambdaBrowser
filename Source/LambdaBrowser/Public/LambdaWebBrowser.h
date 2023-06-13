@@ -31,6 +31,7 @@ struct LAMBDABROWSER_API FLambdaURL
 		Accessed = FDateTime::MinValue();
 	}
 
+
 	FLambdaURL(FString inTitle, FString inURL, FDateTime inAccessed)
 	{
 		Title = inTitle;

@@ -1,0 +1,48 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Lambda Web Browser",
+	"Description": "Browse the web in-editor and in-game.",
+	"Category": "Productivity",
+	"CreatedBy": "LambdaWorks",
+	"CreatedByURL": "www.samuelmetters.co.uk/lambdabrowser",
+	"DocsURL": "www.samuelmetters.co.uk/lambdabrowser",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/7ec87319af84446e968c1e979b93b246",
+	"SupportURL": "www.lambdaworks.co.uk",
+	"EngineVersion": "4.25.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "LambdaBrowser",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Win64",
+				"Win32",
+				"Mac"
+			]
+		},
+		{
+			"Name": "LambdaBrowser_Editor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Win64",
+				"Win32",
+				"Mac"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "WebBrowserWidget",
+			"Enabled": true
+		},
+		{
+			"Name": "WebBrowserNativeProxy",
+			"Enabled": true
+		}
+	]
+}

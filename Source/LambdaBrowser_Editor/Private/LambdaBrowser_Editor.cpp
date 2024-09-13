@@ -43,10 +43,20 @@ void FLambdaBrowser_EditorModule::StartupModule()
 	FLevelEditorModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
 	
 	{
+#if ENGINE_MAJOR_VERSION == 5 && ENGINE_MINOR_VERSION >= 4
+		UToolMenu* WindowMenu = UToolMenus::Get()->ExtendMenu("MainFrame.MainMenu.Window");
+		FToolMenuSection* ContentSectionPtr = WindowMenu->FindSection("Lambda Web Browser");
+		if (!ContentSectionPtr)
+		{
+			ContentSectionPtr = &WindowMenu->AddSection("Lambda Web Browser", NSLOCTEXT("MainAppMenu", "GetContentHeader", "Lambda Web Browser"));
+		}
+		ContentSectionPtr->AddMenuEntryWithCommandList(FLambdaBrowser_EditorCommands::Get().PluginAction, PluginCommands);
+#else
 		TSharedPtr<FExtender> MenuExtender = MakeShareable(new FExtender());
 		MenuExtender->AddMenuExtension("LevelEditor", EExtensionHook::After, PluginCommands, FMenuExtensionDelegate::CreateRaw(this, &FLambdaBrowser_EditorModule::AddMenuExtension));
 
 		LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
+#endif
 	}
 	
 	{

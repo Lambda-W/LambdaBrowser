@@ -51,6 +51,7 @@ public class LambdaBrowser_Editor : ModuleRules
                 "HTTP",
                 "WebBrowser",
                 "WebBrowserWidget",
+                "ToolMenus",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
